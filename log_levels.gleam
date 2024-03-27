@@ -11,9 +11,9 @@ pub fn message(log_line: String) -> String {
 
 pub fn log_level(log_line: String) -> String {
   case log_line {
-    "[ERROR]: " <> message -> string.lowercase("ERROR")
-    "[INFO]: " <> message -> string.lowercase("INFO")
-    "[WARNING]: " <> message -> string.lowercase("WARNING")
+    "[ERROR]: " <> _ -> "error"
+    "[INFO]: " <> _ -> "info"
+    "[WARNING]: " <> _ -> "warning"
     _ -> "Try Again."
   }
 }
