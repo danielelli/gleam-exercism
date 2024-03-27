@@ -2,9 +2,9 @@ import gleam/string
 
 pub fn message(log_line: String) -> String {
   case log_line {
-    "[ERROR]: " <> message -> string.trim(message)
-    "[WARNING]: " <> message -> string.trim(message)
-    "[INFO]:" <> message -> string.trim(message)
+    "[ERROR]: " <> message -> message
+    "[WARNING]: " <> message -> message
+    "[INFO]:" <> message -> message
     _ -> "I'm not sure what " <> log_line <> " is"
   }
 }
