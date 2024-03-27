@@ -7,6 +7,7 @@ pub fn message(log_line: String) -> String {
     "[INFO]:" <> message -> message
     _ -> "I'm not sure what " <> log_line <> " is"
   }
+  |> string.trim
 }
 
 pub fn log_level(log_line: String) -> String {
