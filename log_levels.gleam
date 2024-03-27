@@ -19,13 +19,5 @@ pub fn log_level(log_line: String) -> String {
 }
 
 pub fn reformat(log_line: String) -> String {
-  case log_line {
-    "[ERROR]: " <> message ->
-      string.trim(message) <> " (" <> string.lowercase("ERROR") <> ")"
-    "[INFO]: " <> message ->
-      string.trim(message) <> " (" <> string.lowercase("INFO") <> ")"
-    "[WARNING]: " <> message ->
-      string.trim(message) <> " (" <> string.lowercase("WARNING") <> ")"
-    _ -> "Try Again."
-  }
+  message(log_line) <> " (" <> log_level(log_line) <> ")"
 }
