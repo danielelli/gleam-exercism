@@ -11,13 +11,21 @@ pub fn message(log_line: String) -> String {
 
 pub fn log_level(log_line: String) -> String {
   case log_line {
-    "[ERROR]:" -> string.lowercase("ERROR")
-    "[INFO]:" -> string.lowercase("INFO")
-    "[WARNING]:" -> string.lowercase("WARNING")
-    _ -> "I'm not sure what " <> log_line <> " is"
+    "[ERROR]: " <> message -> string.lowercase("ERROR")
+    "[INFO]: " <> message -> string.lowercase("INFO")
+    "[WARNING]: " <> message -> string.lowercase("WARNING")
+    _ -> "Try Again."
   }
 }
 
 pub fn reformat(log_line: String) -> String {
-  todo
+  case log_line {
+    "[ERROR]: " <> message ->
+      string.trim(message) <> " (" <> string.lowercase("ERROR") <> ")"
+    "[INFO]: " <> message ->
+      string.trim(message) <> " (" <> string.lowercase("INFO") <> ")"
+    "[WARNING]: " <> message ->
+      string.trim(message) <> " (" <> string.lowercase("WARNING") <> ")"
+    _ -> "Try Again."
+  }
 }
